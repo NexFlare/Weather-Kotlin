@@ -5,7 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#98DFE6"
     tools:context="com.nexflare.weatherapp.MainActivity">
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_gravity="center_horizontal"
+       android:text="Agra"
+       android:textColor="@android:color/white"
+       android:fontFamily="@font/roboto_mono_bold"
+       android:textSize="48dp"/>
 
 
 </LinearLayout>

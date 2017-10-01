@@ -14,10 +14,10 @@ class MainActivity : AppCompatActivity() {
     private val REQUEST_LOCATION: Int = 2309
     private var REQUEST_CHECK_SETTINGS=0x1
     lateinit var locationUtil: LocationUtil
+    private lateinit var weatherApi:WeatherAPI
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         checkForPermission()
 
 
@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
             override fun onLocationChanged(latitute: Double?, longitude: Double?) {
                 Toast.makeText(this@MainActivity,""+latitute+" "+longitude,Toast.LENGTH_SHORT).show()
                 locationUtil.googleApiClient.disconnect()
+                weatherApi=RetrofitSingelton.getInstance().weatherAPI
             }
         }
 

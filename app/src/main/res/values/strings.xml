@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Weather App</string>
-    <string name="API_KEY">c689ce429888d1d55ff2da155e993c5d</string>
+    <string name="BASE_URL">https://api.darksky.net/forecast/</string>
+    <string name="API_KEY">7c1c8dd09cd903add4de5cc32a8fbed0</string>
 </resources>
