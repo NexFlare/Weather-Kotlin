@@ -8,7 +8,11 @@ import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.widget.Toast
+import retrofit2.Call
+import retrofit2.Response
+import javax.security.auth.callback.Callback
 
 class MainActivity : AppCompatActivity() {
     private val REQUEST_LOCATION: Int = 2309
@@ -41,6 +45,16 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this@MainActivity,""+latitute+" "+longitude,Toast.LENGTH_SHORT).show()
                 locationUtil.googleApiClient.disconnect()
                 weatherApi=RetrofitSingelton.getInstance().weatherAPI
+                weatherApi.getWeatherResponse(latitute.toString()+","+longitude.toString()).enqueue(object :retrofit2.Callback<WeatherResponse> {
+                    override fun onFailure(call: Call<WeatherResponse>?, t: Throwable?) {
+                        Toast.makeText(this@MainActivity,"some error occurred",Toast.LENGTH_SHORT).show()
+                    }
+
+                    override fun onResponse(call: Call<WeatherResponse>?, response: Response<WeatherResponse>?) {
+                        Log.d("TAGGER",response?.body().toString())
+                    }
+
+                })
             }
         }
 
