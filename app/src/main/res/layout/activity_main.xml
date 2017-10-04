@@ -5,17 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#98DFE6"
+    android:background="@color/appBackground"
     tools:context="com.nexflare.weatherapp.MainActivity">
 
-   <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_gravity="center_horizontal"
-       android:text="Agra"
-       android:textColor="@android:color/white"
-       android:fontFamily="@font/roboto_mono_bold"
-       android:textSize="48dp"/>
+<android.support.design.widget.AppBarLayout
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/appBackground">
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/muli_semibold"
+            android:text="Agra"
+            android:gravity="center"
+            android:drawableRight="@drawable/ic_keyboard_arrow_down_black_24dp"
+            android:textColor="@android:color/black"
+            android:textSize="24dp" />
+    </android.support.v7.widget.Toolbar>
+
+</android.support.design.widget.AppBarLayout>
+
+
+   <FrameLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:id="@+id/container"/>
 
 
 </LinearLayout>

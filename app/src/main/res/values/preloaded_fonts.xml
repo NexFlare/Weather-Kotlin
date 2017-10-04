@@ -3,6 +3,7 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/alegreya_sans_sc_bold</item>
         <item>@font/alegreya_sans_sc_thin</item>
+        <item>@font/muli_semibold</item>
         <item>@font/roboto_mono_bold</item>
     </array>
 </resources>
