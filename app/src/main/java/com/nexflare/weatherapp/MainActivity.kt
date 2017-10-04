@@ -8,6 +8,7 @@ import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 import android.util.Log
 import android.widget.Toast
 import retrofit2.Call
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         checkForPermission()
-
+        supportFragmentManager.beginTransaction().add(R.id.containerFL,WeatherFragment.instance).commit()
 
     }
 
@@ -40,7 +41,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun getLocation() {
-        locationUtil = LocationUtil(this@MainActivity, object : LocationChangedListener {
+        /*locationUtil = LocationUtil(this@MainActivity, object : LocationChangedListener {
             override fun onLocationChanged(latitute: Double?, longitude: Double?) {
                 Toast.makeText(this@MainActivity,""+latitute+" "+longitude,Toast.LENGTH_SHORT).show()
                 locationUtil.googleApiClient.disconnect()
@@ -58,7 +59,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        )
+        )*/
 
     }
 

@@ -5,27 +5,52 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp">
-        <TextView
+        <FrameLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Current"
-            android:fontFamily="@font/muli_semibold"
-            android:textSize="20dp"
-            android:textColor="@android:color/black"
-            android:gravity="center"/>
+            android:id="@+id/currentRL"
+            android:background="@color/appBackground"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Current"
+                android:id="@+id/currentTv"
+                android:fontFamily="@font/muli_semibold"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"
+                android:gravity="center"/>
+        </FrameLayout>
         <View
             android:layout_width="1dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@android:color/black"
             android:layout_height="match_parent"/>
-        <TextView
+        <FrameLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Daily"
-            android:fontFamily="@font/muli_semibold"
-            android:textSize="20dp"
-            android:gravity="center"/>
+            android:id="@+id/dailytRL"
+            android:background="@color/appBackground"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Daily"
+                android:id="@+id/dailyTv"
+                android:textColor="#808080"
+                android:fontFamily="@font/muli_semibold"
+                android:textSize="20sp"
+                android:gravity="center"/>
+        </FrameLayout>
+
 
     </LinearLayout>
+    <android.support.v4.view.ViewPager
+        android:background="@color/appBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/weatherVP"/>
+
 
 </LinearLayout>
