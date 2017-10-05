@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/appBackground"
-    tools:context="com.nexflare.weatherapp.MainActivity">
+    tools:context="com.nexflare.weatherapp.Activity.MainActivity">
 
 <android.support.design.widget.AppBarLayout
     android:layout_width="match_parent"

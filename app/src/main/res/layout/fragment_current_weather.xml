@@ -1,12 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:background="@color/appBackground"
+    android:padding="10dp"
     android:layout_height="match_parent">
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Current Weather"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dayTv"
+        android:fontFamily="@font/muli_semibold"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:paddingTop="10dp"
+        android:textColor="@android:color/black"
+        android:text="TUESDAY"/>
 
-</LinearLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dayTv"
+        android:id="@+id/iconIv"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/moon_01" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iconIv"
+        android:layout_centerHorizontal="true"
+        android:text="35"
+        android:textSize="73sp"
+        android:textColor="@android:color/black"
+        android:fontFamily="@font/muli_semibold"
+        android:id="@+id/tempLabel"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="\u00B0"
+        android:textSize="48dp"
+        android:textColor="@android:color/black"
+        android:layout_alignTop="@+id/tempLabel"
+        android:layout_toRightOf="@+id/tempLabel"
+        android:layout_toEndOf="@+id/tempLabel"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tempLabel"
+        android:fontFamily="@font/muli_semibold"
+        android:id="@+id/summaryTv"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:textSize="12sp"
+        android:text="CLEAR NIGHT"/>
+    <View
+        android:layout_width="24dp"
+        android:layout_height="2dp"
+        android:background="#EAEAEA"
+        android:layout_below="@id/summaryTv"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/viewLine"
+        android:layout_marginTop="15dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="3"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="24dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.github.pwittchen.weathericonview.WeatherIconView
+                android:id="@+id/my_weather_icon1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                custom:weatherIconColor="@android:color/black"
+                custom:weatherIconResource="@string/wi_raindrop"
+                custom:weatherIconSize="25"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="RAIN"
+                android:fontFamily="@font/muli_semibold"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="78%"
+                android:textColor="@android:color/black"
+                android:fontFamily="@font/muli_semibold"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.github.pwittchen.weathericonview.WeatherIconView
+                android:id="@+id/my_weather_icon2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                custom:weatherIconColor="@android:color/black"
+                custom:weatherIconResource="@string/wi_strong_wind"
+                custom:weatherIconSize="25"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="WIND"
+                android:fontFamily="@font/muli_semibold"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="78%"
+                android:textColor="@android:color/black"
+                android:fontFamily="@font/muli_semibold"
+                android:layout_gravity="center" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.github.pwittchen.weathericonview.WeatherIconView
+                android:id="@+id/my_weather_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                custom:weatherIconColor="@android:color/black"
+                custom:weatherIconResource="@string/wi_thermometer"
+                custom:weatherIconSize="25"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="TEMP"
+                android:fontFamily="@font/muli_semibold"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"/>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:text="78"
+                    android:id="@+id/maxTempTv"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/muli_semibold"
+                    android:layout_gravity="center"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/maxTempTv"
+                    android:layout_toEndOf="@id/maxTempTv"
+                    android:layout_alignTop="@id/maxTempTv"
+                    android:text="\u00B0"
+                    android:textSize="16dp"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
