@@ -6,5 +6,5 @@ package com.nexflare.weatherapp.Interface
 
 interface LocationChangedListener {
 
-    fun onLocationChanged(latitute: Double?, longitude: Double?)
+    fun onLocationChanged(latitude: Double, longitude: Double)
 }
