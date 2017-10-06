@@ -19,15 +19,16 @@
         android:textColor="@android:color/black"
         android:text="TUESDAY"/>
 
-    <ImageView
+    <com.github.pwittchen.weathericonview.WeatherIconView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/dayTv"
         android:id="@+id/iconIv"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginTop="18dp"
-        android:src="@drawable/moon_01" />
+        android:layout_marginTop="16dp"
+        custom:weatherIconSize="140"
+        custom:weatherIconResource="@string/wi_rain"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -94,6 +95,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
                 android:text="RAIN"
+                android:id="@+id/precipTypeTv"
                 android:fontFamily="@font/muli_semibold"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"/>
@@ -101,6 +103,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
+                android:id="@+id/precipTv"
                 android:text="78%"
                 android:textColor="@android:color/black"
                 android:fontFamily="@font/muli_semibold"
@@ -136,6 +139,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:text="78%"
+                android:id="@+id/windSpeedTv"
                 android:textColor="@android:color/black"
                 android:fontFamily="@font/muli_semibold"
                 android:layout_gravity="center" />
@@ -152,18 +156,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 custom:weatherIconColor="@android:color/black"
-                custom:weatherIconResource="@string/wi_thermometer"
-                custom:weatherIconSize="25"
+                custom:weatherIconResource="@string/wi_raindrops"
+                custom:weatherIconSize="29"
                 android:layout_gravity="center"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
-                android:text="TEMP"
+                android:text="HUMIDITY"
                 android:fontFamily="@font/muli_semibold"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="5dp"/>
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -173,19 +177,11 @@
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
                     android:text="78"
-                    android:id="@+id/maxTempTv"
+                    android:id="@+id/humdityTv"
                     android:textColor="@android:color/black"
                     android:fontFamily="@font/muli_semibold"
                     android:layout_gravity="center"
                     />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/maxTempTv"
-                    android:layout_toEndOf="@id/maxTempTv"
-                    android:layout_alignTop="@id/maxTempTv"
-                    android:text="\u00B0"
-                    android:textSize="16dp"/>
 
             </RelativeLayout>
 

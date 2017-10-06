@@ -18,7 +18,7 @@ class PagerAdapter(fm:FragmentManager, weatherResponse: WeatherResponse?):Fragme
     override fun getItem(position: Int): Fragment {
         when(position){
             0->{
-                currentWeatherFragmant= CurrentWeatherFragment.newInstance(weatherResponse?.currently)
+                currentWeatherFragmant= CurrentWeatherFragment.newInstance(weatherResponse?.currently,weatherResponse?.timezone)
                 return currentWeatherFragmant
             }
             1->{
@@ -26,7 +26,7 @@ class PagerAdapter(fm:FragmentManager, weatherResponse: WeatherResponse?):Fragme
                 return dailyWeatherFragment
             }
             else->{
-                currentWeatherFragmant= CurrentWeatherFragment.newInstance(weatherResponse?.currently)
+                currentWeatherFragmant= CurrentWeatherFragment.newInstance(weatherResponse?.currently,weatherResponse?.timezone)
                 return currentWeatherFragmant
             }
         }
