@@ -3,6 +3,7 @@ package com.nexflare.weatherapp
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
+import android.support.v4.view.PagerAdapter
 import com.nexflare.weatherapp.Fragments.CurrentWeatherFragment
 import com.nexflare.weatherapp.Fragments.DailyWeatherFragment
 import com.nexflare.weatherapp.Model.WeatherResponse
@@ -11,6 +12,7 @@ import com.nexflare.weatherapp.Model.WeatherResponse
  * Created by nexflare on 06/10/17.
  */
 class PagerAdapter(fm:FragmentManager, weatherResponse: WeatherResponse?):FragmentPagerAdapter(fm){
+
 
     lateinit var currentWeatherFragmant:CurrentWeatherFragment
     var weatherResponse=weatherResponse

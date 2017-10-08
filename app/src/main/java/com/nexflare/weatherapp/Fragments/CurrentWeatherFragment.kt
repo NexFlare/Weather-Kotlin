@@ -31,7 +31,7 @@ class CurrentWeatherFragment:Fragment(){
         updateUI()
     }
 
-    private fun updateUI() {
+    fun updateUI() {
         Log.d("TAGGER TIME",timeZone?:"NULL")
         when(currentWeather?.icon){
             "clear-day"->{
@@ -59,6 +59,11 @@ class CurrentWeatherFragment:Fragment(){
             "partly-cloudy-day"->{
                 iconIv.setIconResource(getString(R.string.wi_day_cloudy))
             }
+            "fog"->{
+                iconIv.setIconResource(getString(R.string.wi_forecast_io_fog))
+            }
+            "partly-cloudy-night"-> iconIv.setIconResource(getString(R.string.wi_night_cloudy))
+            "thunderstorm"->iconIv.setIconResource(getString(R.string.wi_thunderstorm))
 
 
         }
@@ -85,7 +90,7 @@ class CurrentWeatherFragment:Fragment(){
         val timeNull=time?:0
         val date= Date(timeNull.times(1000))
         val simpleDateFormat=SimpleDateFormat("EEE")
-        simpleDateFormat.timeZone= TimeZone.getTimeZone(timeZone)
+        simpleDateFormat.timeZone= TimeZone.getTimeZone(timeZone?:"America/Los_Angeles")
         return simpleDateFormat.format(date)
     }
 

@@ -4,82 +4,102 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/appBackground"
+    android:orientation="vertical"
     tools:context="com.nexflare.weatherapp.Activity.MainActivity">
 
-<android.support.design.widget.AppBarLayout
-    android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
-    android:background="@color/appBackground"
-    app:elevation="0dp">
-    <android.support.v7.widget.Toolbar
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/appBackground"
+        app:elevation="0dp">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:drawableRight="@drawable/ic_keyboard_arrow_down_black_24dp"
+                android:fontFamily="@font/muli_semibold"
+                android:gravity="center"
+                android:text="Agra"
+                android:textColor="@android:color/black"
+                android:textSize="24dp" />
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:fontFamily="@font/muli_semibold"
-            android:text="Agra"
-            android:gravity="center"
-            android:drawableRight="@drawable/ic_keyboard_arrow_down_black_24dp"
-            android:textColor="@android:color/black"
-            android:textSize="24dp" />
-    </android.support.v7.widget.Toolbar>
 
-</android.support.design.widget.AppBarLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp">
-        <FrameLayout
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/currentRL"
-            android:background="@color/appBackground"
-            android:layout_weight="1">
-            <TextView
+            android:clickable="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+
+                <FrameLayout
+                    android:id="@+id/currentRL"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/appBackground">
+
+                    <TextView
+                        android:id="@+id/currentTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/muli_semibold"
+                        android:gravity="center"
+                        android:text="Current"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp" />
+                </FrameLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/black" />
+
+                <FrameLayout
+                    android:id="@+id/dailytRL"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/appBackground">
+
+                    <TextView
+                        android:id="@+id/dailyTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/muli_semibold"
+                        android:gravity="center"
+                        android:text="Daily"
+                        android:textColor="#808080"
+                        android:textSize="20sp" />
+                </FrameLayout>
+
+
+            </LinearLayout>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/weatherVP"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Current"
-                android:id="@+id/currentTv"
-                android:fontFamily="@font/muli_semibold"
-                android:textSize="20sp"
-                android:textColor="@android:color/black"
-                android:gravity="center"/>
-        </FrameLayout>
-        <View
-            android:layout_width="1dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@android:color/black"
-            android:layout_height="match_parent"/>
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/dailytRL"
-            android:background="@color/appBackground"
-            android:layout_weight="1">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Daily"
-                android:id="@+id/dailyTv"
-                android:textColor="#808080"
-                android:fontFamily="@font/muli_semibold"
-                android:textSize="20sp"
-                android:gravity="center"/>
-        </FrameLayout>
-
-
-    </LinearLayout>
-    <android.support.v4.view.ViewPager
-        android:background="@color/appBackground"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/weatherVP"/>
-
-
+                android:background="@color/appBackground" />
+        </LinearLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 
 </LinearLayout>

@@ -11,6 +11,7 @@ import android.os.Bundle
 import android.support.annotation.RequiresApi
 import android.support.v4.app.ActivityCompat
 import android.support.v4.view.ViewPager
+import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.WindowManager
@@ -27,7 +28,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Response
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
+
     private val REQUEST_LOCATION: Int = 2309
     private var REQUEST_CHECK_SETTINGS=0x1
     lateinit var locationUtil: LocationUtil
@@ -44,7 +46,16 @@ class MainActivity : AppCompatActivity() {
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.statusBarColor = Color.DKGRAY
         mPref=PrefrenceManager.newIntance(this)
+        intializeComponents()
         checkForPermission()
+        /*swipeLayout.isRefreshing=true
+        swipeLayout.setOnRefreshListener {
+            SwipeRefreshLayout.OnRefreshListener {
+                Toast.makeText(this@MainActivity,"Refreshing Layout",Toast.LENGTH_SHORT).show()
+                Log.d("TAGGER ","Something is missing")
+                swipeLayout.isRefreshing=false
+            }
+        }*/
         weatherVP.addOnPageChangeListener(object: ViewPager.OnPageChangeListener{
             override fun onPageScrollStateChanged(state: Int) {
 
@@ -73,12 +84,19 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun intializeComponents(weatherResponse: WeatherResponse?) {
-        pageAdapter= PagerAdapter(supportFragmentManager,weatherResponse)
+    private fun intializeComponents(){
+        pageAdapter= PagerAdapter(supportFragmentManager,null)
         weatherVP.adapter=pageAdapter
         weatherVP.currentItem = 0
         weatherVP.offscreenPageLimit=2
     }
+
+    /*private fun intializeComponents(weatherResponse: WeatherResponse?) {
+        pageAdapter= PagerAdapter(supportFragmentManager,weatherResponse)
+        weatherVP.adapter=pageAdapter
+        weatherVP.currentItem = 0
+        weatherVP.offscreenPageLimit=2
+    }*/
 
 
     fun checkForPermission() {
@@ -116,14 +134,17 @@ class MainActivity : AppCompatActivity() {
         weatherApi.getWeatherResponse(mPref.getLatitude() + "," + mPref.getLongitude()).enqueue(object : retrofit2.Callback<WeatherResponse> {
             override fun onFailure(call: Call<WeatherResponse>?, t: Throwable?) {
                 progessDialog.dismiss()
-                intializeComponents(null)
+                //intializeComponents(null)
                 Toast.makeText(this@MainActivity, "some error occurred", Toast.LENGTH_SHORT).show()
 
             }
 
             override fun onResponse(call: Call<WeatherResponse>?, response: Response<WeatherResponse>?) {
                 Log.d("TAGGER", response?.body().toString())
-                intializeComponents(response?.body())
+                //intializeComponents(response?.body())
+                pageAdapter.weatherResponse=response?.body()
+                pageAdapter.currentWeatherFragmant.currentWeather=response?.body()?.currently
+                pageAdapter.currentWeatherFragmant.updateUI()
                 progessDialog.dismiss()
             }
 
@@ -155,4 +176,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+
 }
