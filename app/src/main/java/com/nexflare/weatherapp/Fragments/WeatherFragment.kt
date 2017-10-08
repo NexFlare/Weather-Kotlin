@@ -3,8 +3,6 @@ package com.nexflare.weatherapp.Fragments
 import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.ViewPager
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,7 +11,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.nexflare.weatherapp.API.WeatherAPI
 import com.nexflare.weatherapp.Model.WeatherResponse
-import com.nexflare.weatherapp.PagerAdapter
+import com.nexflare.weatherapp.Adapter.PagerAdapter
 import com.nexflare.weatherapp.R
 import com.nexflare.weatherapp.Utils.PrefrenceManager
 import com.nexflare.weatherapp.Utils.RetrofitSingelton
@@ -88,7 +86,7 @@ class WeatherFragment : Fragment() {
     }
 
     private fun intializeComponents() {
-        val pageAdapter = PagerAdapter(childFragmentManager,null)
+        val pageAdapter = PagerAdapter(childFragmentManager, null)
         weatherVP.adapter = pageAdapter
         weatherVP.currentItem = 0
         weatherVP.offscreenPageLimit = 2

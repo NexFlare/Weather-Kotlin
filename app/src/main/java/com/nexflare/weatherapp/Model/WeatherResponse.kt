@@ -15,4 +15,4 @@ data class CurrentWeather(val time:Long, val temperature:Double,
 
 data class DailyWeatherList(val summary:String,val icon:String,val data:ArrayList<DailyWeather>)
 
-data class DailyWeather(val time:Long,val summary: String,val icon: String)
+data class DailyWeather(val time:Long,val summary: String,val icon: String,val temperatureMax:Double)

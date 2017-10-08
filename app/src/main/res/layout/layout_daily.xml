@@ -3,7 +3,9 @@
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/round_card"
     android:padding="10dp"
-    android:layout_margin="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginTop="15dp"
     android:weightSum="7"
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -13,6 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="3"
         android:text="MONDAY"
+        android:id="@+id/dailyDayTv"
         android:layout_gravity="center"
         android:fontFamily="@font/muli_semibold"
         android:textSize="18dp"
@@ -49,6 +52,7 @@
         custom:weatherIconSize="30"
         android:layout_weight="2"
         android:gravity="center"
+        android:id="@+id/dailyIconIv"
         android:layout_gravity="center"/>
 
 </LinearLayout>

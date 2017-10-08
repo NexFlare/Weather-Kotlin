@@ -1,4 +1,4 @@
-package com.nexflare.weatherapp
+package com.nexflare.weatherapp.Adapter
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
@@ -24,7 +24,7 @@ class PagerAdapter(fm:FragmentManager, weatherResponse: WeatherResponse?):Fragme
                 return currentWeatherFragmant
             }
             1->{
-                dailyWeatherFragment= DailyWeatherFragment.newInstance(weatherResponse?.daily)
+                dailyWeatherFragment= DailyWeatherFragment.newInstance(weatherResponse?.daily,weatherResponse?.timezone)
                 return dailyWeatherFragment
             }
             else->{
