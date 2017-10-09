@@ -24,8 +24,8 @@
                 android:layout_gravity="center_horizontal"
                 android:drawableRight="@drawable/ic_keyboard_arrow_down_black_24dp"
                 android:fontFamily="@font/muli_semibold"
-                android:gravity="center"
                 android:text="Agra"
+                android:id="@+id/cityTv"
                 android:textColor="@android:color/black"
                 android:textSize="24dp" />
         </android.support.v7.widget.Toolbar>

@@ -6,12 +6,12 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
+import android.location.Geocoder
 import android.os.Build
 import android.os.Bundle
 import android.support.annotation.RequiresApi
 import android.support.v4.app.ActivityCompat
 import android.support.v4.view.ViewPager
-import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.WindowManager
@@ -27,6 +27,7 @@ import com.nexflare.weatherapp.Utils.RetrofitSingelton
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Response
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -48,7 +49,9 @@ class MainActivity : AppCompatActivity() {
         mPref = PrefrenceManager.newIntance(this)
         intializeComponents()
         checkForPermission()
-
+        cityTv.setOnClickListener {
+            Toast.makeText(this@MainActivity,"Hello City",Toast.LENGTH_SHORT).show()
+        }
        swipeLayout.setOnRefreshListener {
            Toast.makeText(this@MainActivity, "Refreshing Layout", Toast.LENGTH_SHORT).show()
            Log.d("TAGGER ", "Something is missing")
@@ -112,6 +115,7 @@ class MainActivity : AppCompatActivity() {
         locationUtil = LocationUtil(this@MainActivity, object : LocationChangedListener {
             override fun onLocationChanged(latitude: Double, longitude: Double) {
                 Toast.makeText(this@MainActivity, "" + latitude + " " + longitude, Toast.LENGTH_SHORT).show()
+                setCity(latitude,longitude)
                 locationUtil.googleApiClient.disconnect()
                 PrefrenceManager.newIntance(this@MainActivity).setLatitude(latitude.toString())
                 PrefrenceManager.newIntance(this@MainActivity).setLongitude(longitude.toString())
@@ -121,6 +125,12 @@ class MainActivity : AppCompatActivity() {
 
         )
 
+    }
+
+    private fun  setCity(latitude: Double, longitude: Double) {
+        val geoCoder =Geocoder(this@MainActivity, Locale.getDefault())
+        val address=geoCoder.getFromLocation(latitude,longitude,1)
+        cityTv.text=address.get(0).locality
     }
 
     private fun requestWeather() {
